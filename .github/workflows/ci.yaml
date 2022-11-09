@@ -1,5 +1,15 @@
 name: Run Checks
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+    - "src/**"
+    - "Cargo.toml"
+    - "Cargo.lock"
+  pull_request:
+    paths:
+    - "src/**"
+    - "Cargo.toml"
+    - "Cargo.lock"
 
 jobs:
   test:

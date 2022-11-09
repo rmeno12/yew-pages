@@ -4,6 +4,10 @@ on:
     branches: [master]
     workflows: [Run Checks]
     types: [completed]
+  push:
+    branches: [master]
+    paths:
+    - "index.html"
   workflow_dispatch:
 
 permissions:
