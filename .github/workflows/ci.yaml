@@ -1,0 +1,43 @@
+name: Continuous integration
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+    - uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --all
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+    - uses: actions-rs/cargo@v1
+      with:
+        command: fmt
+        args: --all -- -- check
+
+  clippy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+    - uses: actions-rs/cargo@v1
+      with:
+        command: clippy
+        args: --all -- -D warnings
+
