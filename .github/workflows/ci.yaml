@@ -1,4 +1,4 @@
-name: Continuous integration
+name: Run Checks
 on: [push, pull_request]
 
 jobs:
