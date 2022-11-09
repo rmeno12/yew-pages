@@ -18,7 +18,7 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
-      - run: trunk build --release --public_url "${{steps.pages.outputs.base_path}}"
+      - run: trunk build --release --public-url "${{steps.pages.outputs.base_path}}"
       - uses: actions/upload-artifact@v1
         with:
           path: dist/
